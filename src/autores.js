@@ -1,22 +1,22 @@
 export const AUTORES = [
     {
-        nome: 'Paulo',
-        livro: 'React',
-        preco: '1000'
+        name: 'Paulo',
+        book: 'React',
+        price: '1000'
     },
     {
-        nome: 'Daniel',
-        livro: 'Java',
-        preco: '99'
+        name: 'Daniel',
+        book: 'Java',
+        price: '99'
     },
     {
-        nome: 'Marcos',
-        livro: 'Design',
-        preco: '150'
+        name: 'Marcos',
+        book: 'Design',
+        price: '150'
     },
     {
-        nome: 'Bruno',
-        livro: 'DevOps',
-        preco: '100'
+        name: 'Bruno',
+        book: 'DevOps',
+        price: '100'
     }
 ];

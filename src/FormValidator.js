@@ -1,36 +1,36 @@
 import validator from 'validator';
 
 export default class FormValidator {
-	constructor(validacoes) {
-		this.validacoes = validacoes;
+	constructor(validations) {
+		this.validations = validations;
 	}
 
 	validation(state) {
-		let validacao = this.validForm();
+		let validation = this.validForm();
 
-		this.validacoes.forEach((regra) => {            
-			const campoValor = state[regra.campo];
-            const args = regra.args || [];
-            const metodoValidacao = typeof regra.metodo === 'string' ? validator[regra.metodo] : regra.metodo;
+		this.validations.forEach((rule) => {            
+			const fieldValue = state[rule.field];
+            const args = rule.args || [];
+            const validationMethod = typeof rule.method === 'string' ? validator[rule.method] : rule.method;
 
-			if (metodoValidacao(campoValor, ...args, state) !== regra.validoQuando) {
-				validacao[regra.campo] = {
+			if (validationMethod(fieldValue, ...args, state) !== rule.validWhen) {
+				validation[rule.field] = {
                     isInvalid: true,
-                    message: regra.mensagem
+                    message: rule.message
                 }
 
-                validacao.isValid = false;
+                validation.isValid = false;
 			}
         });
         
-        return validacao;
+        return validation;
 	}
 
 	validForm() {
-		const validacao = {};
+		const validation = {};
 
-		this.validacoes.map((regra) => (validacao[regra.campo] = { isInvalid: false, message: '' }));
+		this.validations.map((rule) => (validation[rule.field] = { isInvalid: false, message: '' }));
 
-		return { isValid: true, ...validacao };
+		return { isValid: true, ...validation };
 	}
 }

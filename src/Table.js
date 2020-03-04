@@ -17,9 +17,9 @@ const Tbody = ({ autores, removeAutor }) => {
     const linhas = autores.map((linha, index) => {
         return (
             <tr key={index}>
-                <td>{linha.nome}</td>
-                <td>{linha.livro}</td>
-                <td>{linha.preco}</td>
+                <td>{linha.name}</td>
+                <td>{linha.book}</td>
+                <td>{linha.price}</td>
                 <td><button className="waves-effect waves-light btn indigo lighten-2" onClick={() => removeAutor(index)}>Remover</button></td>
             </tr>
 
