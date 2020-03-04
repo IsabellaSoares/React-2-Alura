@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import './App.css';
 import FormValidator from './FormValidator';
+import Popup from './Popup';
 
 export default function Formulario(props) {
 	const [ filterInput, setFilterInput ] = useReducer((state, newState) => ({ ...state, ...newState }), {
@@ -40,7 +41,7 @@ export default function Formulario(props) {
 		const validation = formValidator.validation(filterInput);
 
 		if (validation.isValid) {
-			props.escutadorDeSubmit(filterInput);
+			props.handleSubmit(filterInput);
 			setFilterInput({
 				name: '',
 				book: '',
@@ -48,13 +49,15 @@ export default function Formulario(props) {
 			});
 		} else {
 			const { name, book, price } = validation;
-			const campos = [ name, book, price ];
+			const fields = [ name, book, price ];
 
-			const camposInvalidos = campos.filter((elem) => {
+			const invalidFields = fields.filter((elem) => {
 				return elem.isInvalid;
 			});
 			
-			camposInvalidos.forEach(console.log);
+			invalidFields.forEach(field => {
+				Popup.exibeMensagem('error', field.message);
+			});
 		}
 	}
 

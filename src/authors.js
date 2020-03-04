@@ -1,4 +1,4 @@
-export const AUTORES = [
+export const AUTHORS = [
     {
         name: 'Paulo',
         book: 'React',

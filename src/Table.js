@@ -13,22 +13,21 @@ const Thead = () => {
 	);
 };
 
-const Tbody = ({ autores, removeAutor }) => {
-    const linhas = autores.map((linha, index) => {
+const Tbody = ({ authors, removeAuthor }) => {
+    const rows = authors.map((row, index) => {
         return (
             <tr key={index}>
-                <td>{linha.name}</td>
-                <td>{linha.book}</td>
-                <td>{linha.price}</td>
-                <td><button className="waves-effect waves-light btn indigo lighten-2" onClick={() => removeAutor(index)}>Remover</button></td>
+                <td>{row.name}</td>
+                <td>{row.book}</td>
+                <td>{row.price}</td>
+                <td><button className="waves-effect waves-light btn indigo lighten-2" onClick={() => removeAuthor(index)}>Remover</button></td>
             </tr>
-
         )
     });
     
     return (
 		<tbody>
-			{ linhas }
+			{ rows }
 		</tbody>
 	);
 };
@@ -38,7 +37,7 @@ export default class Table extends Component {
 		return (
             <table className="centered highlight">
                 <Thead />
-                <Tbody autores={this.props.autores} removeAutor={this.props.removeAutor} />
+                <Tbody authors={this.props.authors} removeAuthor={this.props.removeAuthor} />
             </table>
         );
 	}
