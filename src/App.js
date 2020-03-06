@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
 
-import { AUTHORS } from './authors';
+import { AUTHORS } from './mock';
 
 import Header from './Header';
 import Table from './Table';

@@ -1,22 +1,15 @@
-export const AUTHORS = [
-    {
-        name: 'Paulo',
-        book: 'React',
-        price: '1000'
-    },
-    {
-        name: 'Daniel',
-        book: 'Java',
-        price: '99'
-    },
-    {
-        name: 'Marcos',
-        book: 'Design',
-        price: '150'
-    },
-    {
-        name: 'Bruno',
-        book: 'DevOps',
-        price: '100'
-    }
-];
+import React from 'react';
+import Header from './Header';
+
+const Authors = () => {
+    return (
+        <>
+            <Header />
+            <div className="container m-1">
+                <h1>Autores</h1>
+            </div>            
+        </>
+    )
+}
+
+export default Authors;
