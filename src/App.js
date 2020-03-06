@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
+import './App.css';
+
+import { AUTHORS } from './authors';
+
+import Header from './Header';
 import Table from './Table';
 import Form from './Formulario';
-import './App.css';
-import { AUTHORS } from './authors';
 import Popup from './Popup';
 
 function App() {
@@ -19,10 +22,13 @@ function App() {
 	}
 
 	return (
-		<div className="container m-1">
-			<Table authors={authors} removeAuthor={removeAuthor} />
-			<Form handleSubmit={handleSubmit} />
-		</div>
+		<>
+			<Header />
+			<div className="container m-1">
+				<Table authors={authors} removeAuthor={removeAuthor} />
+				<Form handleSubmit={handleSubmit} />
+			</div>
+		</>
 	);
 }
 

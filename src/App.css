@@ -1,7 +1,11 @@
-.m-1 {
-  margin: 1rem auto;
-}
-
 .centered {
   text-align: center;
+}
+
+.header-component {
+  padding: 0 15px;
+}
+
+.m-1 {
+  margin: 1rem auto;
 }
